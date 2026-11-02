@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TinyURL-inspired URL shortener project">
+  <title>TinyURL - URL Shortener, Branded Short Links & Analytics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#home" aria-label="TinyURL home">TINYURL</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#plans">Plans</a><a href="#features">Features</a><a href="#domains">Domains</a><a href="#resources">Resources</a>
+    </nav>
+    <div class="nav-actions"><a href="#login">Log In</a><a class="signup" href="#signup">Sign Up</a></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE ORIGINAL LINK SHORTENER</p>
+        <h1>URL Shortener, Branded Short Links &amp; Analytics</h1>
+        <p>Welcome to the original link shortener — simplifying the Internet through the power of the URL since 2002.</p>
+        <p>You can use branded domains for fully custom links, track link analytics, and enjoy other powerful features with our paid plans.</p>
+        <div class="hero-actions"><a class="button button-light" href="#plans">View Plans</a><a class="button button-teal" href="#signup">Create Free Account</a></div>
+      </div>
+
+      <div class="shortener-card">
+        <div class="tabs">
+          <button class="tab active" id="shortenTab" type="button">↗ &nbsp; Shorten a Link</button>
+          <button class="tab" id="qrTab" type="button">▦ &nbsp; Generate QR Code</button>
+        </div>
+        <form id="shortenForm" class="shorten-form">
+          <label for="longUrl">➤ &nbsp; Long URL <span class="required">*</span></label>
+          <input id="longUrl" type="url" placeholder="Paste long URL here" required>
+          <div class="form-row">
+            <div class="field">
+              <label for="domain">◎ &nbsp; Domain</label>
+              <select id="domain"><option value="da.gd">da.gd (short links)</option></select>
+            </div>
+            <div class="field">
+              <label for="alias">✎ &nbsp; Alias (optional)</label>
+              <input id="alias" type="text" placeholder="Add alias here" minlength="5" disabled>
+              <small>Custom aliases are not supported by da.gd.</small>
+            </div>
+          </div>
+          <button class="submit-button" id="shortenBtn" type="submit">Shorten Link</button>
+          <p class="terms">By clicking Shorten Link, you agree to use this educational demo responsibly. Do not shorten harmful or deceptive URLs.</p>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+          <div id="result" class="result hidden">
+            <strong>Your short link is ready</strong>
+            <div class="result-line"><a id="shortUrl" href="#" target="_blank" rel="noopener noreferrer"></a><button type="button" id="copyBtn">Copy</button></div>
+          </div>
+        </form>
+        <div id="qrPanel" class="qr-panel hidden">
+          <h3>Generate a QR Code</h3>
+          <p>Shorten a link first, then use the link to create a QR code.</p>
+          <button type="button" id="makeQr" class="submit-button">Create QR Code</button>
+          <div id="qrOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recent-section">
+      <h2>Your Recent Links:</h2>
+      <div id="recentLinks" class="recent-box"><p class="empty-state">Your shortened links will appear here during this browser session.</p></div>
+    </section>
+
+    <section class="plans-section section-light" id="plans">
+      <div class="section-heading"><h2>TinyURL Plans Include:</h2><p>Tools to make your links easier to share, manage, and measure.</p></div>
+      <div class="four-grid">
+        <article class="plan-item"><div class="illustration analytics-art"><span class="metric">↑ 346<small>Total Human Clicks</small></span><span class="donut"></span><span class="bars">▂ ▅ ▃ ▆ ▄ ▇</span></div><h3>Detailed Link Analytics</h3><p>Stay on top of your links' performance and get insights into the clicks you earn and people you reach.</p></article>
+        <article class="plan-item"><div class="illustration domain-art"><span class="bubble">www.</span><span class="person">●</span></div><h3>Fully Branded Domains</h3><p>Customize your links with branded domains — say goodbye to default link shortening!</p></article>
+        <article class="plan-item"><div class="illustration links-art"><span>↗ &nbsp; ━━━━━</span><span>↗ &nbsp; ━━━━━</span><span>↗ &nbsp; ━━━━━</span></div><h3>Bulk Short URLs</h3><p>Scale your communications with an API, and create thousands of unique short links quickly.</p></article>
+        <article class="plan-item"><div class="illustration manage-art"><span>✎ Edit</span><span>✓ &nbsp; ━━━━━</span><span>✓ &nbsp; ━━━━━</span><span>✓ &nbsp; ━━━━━</span></div><h3>Link Management</h3><p>Take full control of your links: search, edit, and manage thousands at a time from a convenient dashboard.</p></article>
+      </div>
+    </section>
+
+    <section class="split-section" id="features">
+      <div class="split-image tablet-image" role="img" aria-label="Abstract tablet and analytics illustration"><div class="tablet">▥<br><span>LINK ANALYTICS</span><div class="chart">▂ ▅ ▃ ▇ ▄</div></div></div>
+      <div class="split-copy teal-panel"><h2>Link Shortening Done Quick and Easy</h2><p>Our URL shortener is designed to make long links easier to share wherever you need them.</p><p>Shorten links for social media, blogs, SMS, emails, ads, and almost anything both off- and online.</p><p>Wave goodbye to long, clunky links and give your audience a cleaner experience.</p><div class="hero-actions"><a class="button button-light" href="#plans">View Plans</a><a class="button button-navy" href="#resources">Contact Sales</a></div></div>
+    </section>
+
+    <section class="branding-section section-light" id="domains">
+      <div class="section-heading"><h2>Your One-Stop Solution for Branding and Managing Links</h2><p>We offer a comprehensive suite of features to help users brand and manage links conveniently.</p><a class="button button-teal" href="#plans">View Plans</a></div>
+      <div class="feature-layout">
+        <article class="feature-note note-left-top"><h3>Unlimited Tracked Clicks</h3><p>Track link engagement and understand how people interact with your links.</p></article>
+        <article class="feature-note note-left-bottom"><h3>Detailed Link Analytics</h3><p>Get actionable insights into your social media, emails, ads, and other platforms.</p></article>
+        <div class="rocket-illustration" aria-hidden="true"><div class="rocket">➤</div><div class="rocket-trail"></div><div class="laptop">TINYURL<br><small>LINK DASHBOARD</small></div></div>
+        <article class="feature-note note-right-top"><h3>Fully Custom Links</h3><p>Create short links that put your brand front and center with a custom domain.</p></article>
+        <article class="feature-note note-right-bottom"><h3>Bulk Short URLs</h3><p>Shorten several links in a single go using a platform or API.</p></article>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="stats-copy"><h2>Transforming the Digital Landscape Since ’02</h2><p>TinyURL has created billions of short links for marketers, influencers, small business owners, and large businesses.</p><div class="stat"><strong>Billions</strong><span>of redirects per month</span></div><div class="stat"><strong>24 years</strong><span>of shortening URLs</span></div><div class="stat"><strong>33B+</strong><span>TinyURLs created (illustrative)</span></div></div>
+      <div class="stats-art" role="img" aria-label="Abstract business analytics illustration"><div class="people"><span>▥</span><span>▥</span><span>▥</span></div><div class="growth-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </section>
+
+    <section class="faq-section" id="resources">
+      <h2>Frequently<br>Asked Questions</h2>
+      <div class="faq-list">
+        <details><summary>What Is a URL Shortener?</summary><p>A URL shortener turns a long web address into a shorter link that redirects visitors to the original page.</p></details>
+        <details><summary>How Does a URL Shortener Work?</summary><p>The service creates a short link and connects it to the destination URL. When someone opens the short link, they are redirected to the original page.</p></details>
+        <details><summary>What Are the Benefits of Using a Short URL?</summary><p>Short links are easier to share in messages, social media posts, emails, and printed materials.</p></details>
+        <details><summary>What Is a Custom URL Shortener?</summary><p>A custom URL shortener can use a branded domain or a custom alias, depending on what the service supports.</p></details>
+        <details><summary>How Do I Shorten a URL for Free?</summary><p>Paste a valid URL into the input field above and select Shorten Link. This demo uses the da.gd service.</p></details>
+        <details><summary>How Do I Know Your Service Is Reliable and Scalable?</summary><p>This is an educational front-end demo using a third-party service, not the official TinyURL platform.</p></details>
+        <details><summary>Can I Use a Domain I Already Own?</summary><p>Branded domains require a domain and a shortening service that supports custom-domain configuration.</p></details>
+      </div>
+    </section>
+
+    <section class="cta-section" id="signup"><h2>Ready for Shorter, Smarter Links?</h2><p>Transform a long link into a short one using this simple demo.</p><div class="hero-actions"><a class="button button-light" href="#plans">View Plans</a><a class="button button-teal" href="#home">Shorten a Link</a></div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-column"><h3>Features</h3><a href="#features">Link Editor</a><a href="#features">Link Management</a><a href="#domains">Branded Links</a><a href="#features">Short URL Tracking</a><a href="#home">QR Code Generator</a><a href="#home">Short URL API</a></div>
+    <div class="footer-column"><h3>Resources</h3><a href="#resources">Blog</a><a href="#resources">For Developers</a><a href="#resources">Our Proven Process</a><a href="#resources">About Us</a></div>
+    <div class="footer-column"><h3>Contact Us</h3><a href="#resources">Help Desk</a><a href="#resources">Contact Sales</a><a href="#resources">Contact Support</a><a href="#resources">Report Abuse</a></div>
+    <div class="footer-column"><h3>Legal</h3><a href="#resources">Terms of Service</a><a href="#resources">Privacy Policy</a><a href="#resources">Cookie Policy</a><a href="#resources">Accessibility Statement</a></div>
+    <div class="footer-brand"><div class="socials">f　◎　in　𝕏</div><span class="brand">TINYURL</span><p>© 2026 TinyURL Clone Project<br>Educational demo. Not affiliated with TinyURL.</p></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
